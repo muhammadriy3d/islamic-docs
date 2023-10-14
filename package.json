@@ -1,0 +1,62 @@
+{
+  "name": "islamdocs",
+  "version": "1.0.0",
+  "description": "islam documentation network.",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{lib,app,test,.}/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "scripts": {
+    "start:client": "cd ./app/client && npm start",
+    "start:server": "cd ./app/server && npm start",
+    "dev:client": "cd ./app/client && npm run dev",
+    "dev:server": "cd ./app/server && npm run dev",
+    "start": "concurrently \" npm run start:client \" \" npm run start:server \"",
+    "dev": "concurrently \" npm run start:client \" \" npm run dev:server \"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "pretty": "prettier . --check",
+    "pretty:fix": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammadriy3d/you-never-knew-islam.git"
+  },
+  "keywords": [
+    "Islam",
+    "network"
+  ],
+  "author": "Muhammad Riyad | @muhammadriy3d",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/muhammadriy3d/you-never-knew-islam/issues"
+  },
+  "homepage": "https://github.com/muhammadriy3d/you-never-knew-islam#readme",
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.31"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
