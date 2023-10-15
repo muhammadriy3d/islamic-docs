@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import "../styles/dropdown.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretLeft, faL } from '@fortawesome/free-solid-svg-icons';
 
-const DropdownButton = ({ title, options }) => {
+const DropdownButton = ({ title, options, selectClass }) => {
   const [selected, onSelect] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const dropdownRef = useRef(null);
@@ -47,7 +46,7 @@ const DropdownButton = ({ title, options }) => {
   return (
     <div className="select-container" ref={dropdownRef}>
       <button
-        className="select"
+        className={`select ${selectClass}`} 
         onClick={toggleDropdown}
         onKeyDown={handleKeyDown}
         aria-expanded={selected}

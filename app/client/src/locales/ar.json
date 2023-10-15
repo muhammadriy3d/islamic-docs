@@ -5,5 +5,8 @@
   "navBar.page_vision": "رؤيتنا",
   "navBar.page_sections": "أقسام الموقع",
   "navBar.page_sections_item_quran": "القرآن الكريم",
-  "navBar.page_sections_item_sunnah": "السنه النبوية"
+  "navBar.page_sections_item_sunnah": "السنه النبوية",
+  "homePage.page_title": "المكتبة الإسلامية",
+  "homePage.page_subtitle": "كل ما تحتاج لمعرفته عن الإسلام كما جاءَ في القرآن الكريم. والسنه النبويه وكتب العلماء المسلمون",
+  "homePage.page_button_text": "معرفة المزيد"
 }

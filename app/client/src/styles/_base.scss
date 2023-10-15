@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://www.fontstatic.com/f=kufi");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @font-face {
   font-family: Dthulth;
   src: url(../assets/fonts/DTHULUTH-II-1.ttf);
@@ -10,17 +11,24 @@ $mixed-font: ("Poppins", serif) or $normal-font;
 $primary-font: $mixed-font, serif ;
 $light-bg-color: #fafafa;
 $dark-bg-color:  #171717;
+$accent-bg-color: #c67b52;
 $primary-bg-color: #a9986a;
 $secondary-bg-color: #543f24;
 $primary-hover-bg-color: #402a09;
 $secondary-hover-bg-color: #48300d;
 $primary-color: #37200c;
-$secondary-color: #988759;
+$secondary-color: #fde0c5;
 $dark-color: #171717;
 $light-color: #ffffff;
 $primary-hover-color: #cbba8c;
 $secondary-hover-color: #7b522f;
-$navbar-font: 1.2em;
+$navbar-font: 1.12em;
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
 
 @mixin reset($boxSizing: border-box) {
   border: 0;
@@ -55,10 +63,8 @@ body {
   text-align: center;
   padding: 10px;
   display: flex;
-  flex-direction: column;
   position: fixed;
-  transform: translateY(56px);
-  top: 0;
+  top: 50px;
   left: 0;
   right: 0;
   border-radius: 4px;
@@ -66,5 +72,24 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+
+  direction: rtl;
+  .exit {
+    display: flex;
+    background-color: transparent;
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transform: translateY(-4px) translateX(50px);
+  }
 }
 
+a:active {
+  outline: none;
+}
+
+::selection {
+  background-color: $primary-bg-color;
+  color: white;
+}

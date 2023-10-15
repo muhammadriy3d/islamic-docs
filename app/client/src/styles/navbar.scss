@@ -1,5 +1,5 @@
 @use "base";
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url(../styles/dropdown.scss);
 @font-face {
   font-family: AljazeeraFontBold;
   src: url(../assets/fonts/Al-Jazeera-Arabic-Bold.ttf);
@@ -12,8 +12,13 @@
   height: auto;
   width: 100vw;
   background-color: white;
-  box-shadow: rgba($color: base.$primary-bg-color, $alpha: 0.25) 0 0 8px 2px;
-  z-index: 1;
+  box-shadow: rgba($color: base.$dark-bg-color, $alpha: 0.25) 0 6px 12px -5px;
+  z-index: 4250;
+  user-select: none;
+}
+
+a {
+  -webkit-user-drag: none;
 }
 
 .top-menu-container {
@@ -23,7 +28,7 @@
   margin: 0 auto;
   padding: 0 15px 0 15px;
   max-width: 1240px;
-  min-height: 55px;
+  min-height: 50px;
 }
 
 .rtl {
@@ -42,58 +47,74 @@
   justify-content: center;
   align-items: center;
   font-family: AljazeeraFontBold, base.$primary-font;
-  font-size: 1.15em;
+  font-size: 1.08em;
+
+  .brand {
+    transform: translateY(-4px);
+    // color: white;
+    padding: 15px 10px 15px 15px;
+    font-size: 2em;
+    font-family: "Dthulth", "Poppins", sans-serif;
+    transition: color 0.4s ease;
+
+    &:hover {
+      color: base.$secondary-hover-color;
+    }
+  }
 
   &.right {
+    position: relative;
     display: flex;
+    text-align: center;
+
+    ul {
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+    }
+  }
+
+  &.left {
+    position: relative;
     text-align: center;
     ul {
       list-style: none;
     }
   }
 
-  &.left {
-  }
-
   .navbar-items {
     display: flex;
-    list-style: none;
-    text-align: center;
 
     .navbar-item {
-      width: 40px;
-      height: 40px;
-      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
       margin: 0 4px;
       border-radius: 30px;
-      background-color: base.$secondary-bg-color;
+      border: 1px solid #cecece;
+      // background-color: #cecece;
+      color: base.$secondary-bg-color;
       cursor: pointer;
-      color: white;
+      // color: white;
+      transition: all 0.4s ease;
 
       &:hover {
-        background-color: base.$primary-hover-bg-color;
+        background-color: base.$secondary-bg-color;
+        color: white;
       }
-    }
-
-    a {
-      text-decoration: none;
-    }
-    button {
-      font-weight: bold;
     }
   }
 
-  .brand {
-    padding: 15px;
-    transform: translateY(-4px);
-    // color: white;
-    font-size: 2.2em;
-    font-family: "Dthulth", "Great Vibes", cursive;
-    transition: color 0.4s ease;
+  .fa-download {
+    padding-bottom: 2px;
+    padding-left: 1px;
+  }
 
-    &:hover {
-      color: base.$secondary-hover-color;
-    }
+  .fa-share-nodes {
+    padding-top: 3px;
+    padding-right: 1px;
   }
 
   .ltr {
@@ -112,6 +133,20 @@
       }
     }
   }
+}
+
+.en,
+.ar {
+  font-family: "Dthulth", serif;
+  font-weight: bolder;
+}
+
+.ar {
+  padding-bottom: 4px;
+}
+
+.en {
+  padding-top: 2px;
 }
 
 .dropbtn {
@@ -134,4 +169,219 @@ a {
 .title {
   font-family: base.$primary-font;
   font-size: base.$navbar-font;
+}
+
+/* Media Query */
+@media screen and (max-width: base.$xl) {
+  .navbar {
+    font-size: 0.95em;
+    .brand {
+      font-size: 1.8em;
+    }
+
+    .navbar-items {
+      .navbar-item {
+        width: 32px;
+        height: 32px;
+      }
+
+      %icons-exact-size_xl {
+        width: 15px;
+        height: 15px;
+      }
+
+      .fa-download {
+        @extend %icons-exact-size_xl;
+        padding-bottom: 3px;
+      }
+
+      .fa-share-nodes {
+        @extend %icons-exact-size_xl;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: base.$lg) {
+  .ul:not(:first-child) {
+    display: block;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: 0;
+    transform: translateY(-100px);
+    transition: all 0.3s ease;
+  }
+
+  .li {
+    display: flex;
+    width: 100%;
+    visibility: hidden;
+    text-align: start;
+  }
+
+  .select {
+    display: none;
+  }
+
+  .navbar {
+    .brand {
+      font-size: 1.5em;
+      z-index: 1;
+    }
+
+    &.left {
+      // display: none;
+    }
+
+    .navbar-items {
+      .navbar-item {
+        width: 28px;
+        height: 28px;
+      }
+
+      %icons-exact-size {
+        width: 15px;
+        height: 15px;
+      }
+
+      .fa-download {
+        @extend %icons-exact-size;
+      }
+
+      .fa-share-nodes {
+        @extend %icons-exact-size;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: base.$lg) {
+  .ul.responsive {
+    visibility: visible;
+    transform: translateY(0);
+    position: fixed;
+    display: block;
+    background-color: rgba($color: white, $alpha: 1);
+    width: 100%;
+    height: auto;
+    top: 50px;
+    right: 0;
+    left: 0;
+    padding: 18px 0;
+    box-shadow: rgba($color: base.$primary-bg-color, $alpha: 0.25) 0 4px 8px;
+  }
+
+  li.responsive {
+    display: flex;
+    width: 100%;
+    visibility: visible;
+    text-align: start;
+  }
+
+  .page-link {
+    width: 100vw;
+  }
+
+  .select.responsive {
+    display: block;
+  }
+
+  .options {
+    position: relative;
+    background-color: white;
+    margin: 0;
+
+    .option {
+      width: 100vw;
+      text-align: start;
+
+      &-text {
+        color: base.$primary-color;
+        padding: 15px;
+        text-align: start;
+      }
+    }
+  }
+
+  .top-menu-container {
+    .bars {
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin-top: 7px;
+      cursor: pointer;
+      z-index: 1;
+
+      .bar {
+        position: relative;
+        margin: 3px;
+        width: 25px;
+        height: 3px;
+        border-radius: 30px;
+        background-color: base.$secondary-bg-color;
+        transition: all 0.6s ease;
+      }
+
+      &.open {
+        :first-child {
+          transform: translate(0, 6px) rotate(-45deg);
+        }
+
+        :nth-child(2) {
+          opacity: 0;
+        }
+
+        :last-child {
+          transform: translate(0, -6px) rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: base.$sm) {
+  .navbar {
+    .brand {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media screen and (max-width: 308px) {
+  .top-menu-container {
+    .bars {
+      display: block;
+      width: 20px;
+      height: 25px;
+      margin-top: 4px;
+    }
+  }
+  .navbar {
+    font-size: 0.9em;
+    .brand {
+      font-size: 1em;
+    }
+    .navbar-items {
+      .navbar-item {
+        width: 25px;
+        height: 25px;
+      }
+
+      %icons-exact-size_lowest {
+        width: 13px;
+        height: 13px;
+      }
+
+      .fa-download {
+        @extend %icons-exact-size_lowest;
+        padding-bottom: 2px;
+        padding-right: 2px;
+      }
+
+      .fa-share-nodes {
+        @extend %icons-exact-size_lowest;
+      }
+    }
+  }
 }

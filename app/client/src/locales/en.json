@@ -5,5 +5,8 @@
   "navBar.page_vision": "Our vision",
   "navBar.page_sections": "Pages",
   "navBar.page_sections_item_quran": "َQuran",
-  "navBar.page_sections_item_sunnah": "Sunnah of the Prophet"
+  "navBar.page_sections_item_sunnah": "Sunnah of the Prophet",
+  "homePage.page_title": "Islamic Library",
+  "homePage.page_subtitle": "For everything you need to know about Islam, cases and get knowledge from the quran and the sunnah as-is.",
+  "homePage.page_button_text": "Learn more"
 }
