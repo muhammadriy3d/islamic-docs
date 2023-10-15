@@ -93,3 +93,7 @@ a:active {
   background-color: $primary-bg-color;
   color: white;
 }
+
+:active {
+  outline: none;
+}
