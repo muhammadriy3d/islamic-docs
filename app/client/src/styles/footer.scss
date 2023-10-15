@@ -1,0 +1,21 @@
+@use "base";
+
+.bottom-menu-container {
+  display: block;
+  overflow: hidden;
+  height: auto;
+  width: 100vw;
+  background-color: base.$dark-bg-color;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  background-color: base.$dark-bg-color;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  min-height: 50px;
+  max-width: 1240px;
+  color: white;
+}

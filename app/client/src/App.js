@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/404";
 
 import "./styles/app.scss";
+import Footer from "./components/Footer";
 
 const App = () => {
  
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
