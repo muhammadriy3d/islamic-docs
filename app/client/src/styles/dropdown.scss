@@ -1,0 +1,60 @@
+@use "base";
+
+.select-container {
+  position: relative;
+  display: block;
+}
+
+.select {
+  background-color: transparent;
+  border: 0px solid base.$dark-bg-color;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: inherit;
+  font-family: inherit;
+  transition: all .5s ease;
+  cursor: pointer;
+  &-text {
+    margin: 8px;
+  }
+}
+
+.options {
+  position: fixed;
+  top: 10;
+  visibility: collapse;
+  background-color: base.$secondary-bg-color;
+  padding: 6px 0;
+  margin: 0 -17px;
+  border-radius: 4px;
+
+  .option {
+    padding: 8px 40px;
+    transition: all .4s ease;
+
+    &:last-child {
+      border: 0px;
+    }
+
+    &-text {
+      font-family: initial;
+      font-weight: 800;
+      font-size: .9em; 
+      color: white;
+    }
+
+    &:hover {
+      background-color: base.$primary-bg-color;
+    }
+
+    &:hover a {
+      color: base.$secondary-bg-color;
+    }
+  }
+}
+
+.open {
+  visibility: visible;
+}
+
+
