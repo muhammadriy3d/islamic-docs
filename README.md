@@ -2,5 +2,5 @@
 Discovering the Real Islam: Exploring the Truth for Everyone!
 
 
-# Contributing Guid
+# Contributing Guide
 You can contact me for now!
