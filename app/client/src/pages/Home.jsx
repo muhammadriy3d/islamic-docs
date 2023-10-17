@@ -5,29 +5,30 @@ import "../styles/Home.scss";
 import { useEffect } from 'react';
 
 const Home = () => {
+  const userLanguage = localStorage.getItem('userLanguage') || 'ar';
   const { t } = useTranslation();
   const fadeIn = useSpring({ 
     from: { opacity: 0 }, 
     to: { opacity: 1 },
-    config: { duration: 300 },
+    config: { duration: 500 },
   });
 
   const raise = useSpring({
     from: { transform: 'translateY(150px)' }, // Initial position (raised)
     to: { transform: 'translateY(0)' },       // Final position (lowered)
-    config: { duration: 300 },              // Animation duration in milliseconds
+    config: { duration: 400 },              // Animation duration in milliseconds
   });
 
   const raiseLate = useSpring({
     from: { transform: 'translateY(250px)' }, // Initial position (raised)
     to: { transform: 'translateY(0)' },       // Final position (lowered)
-    config: { duration: 400 },              // Animation duration in milliseconds
+    config: { duration: 500 },              // Animation duration in milliseconds
   });
 
   const raiseAfter = useSpring({
     from: { transform: 'translateY(300px)' }, // Initial position (raised)
     to: { transform: 'translateY(0)' },       // Final position (lowered)
-    config: { duration: 450 },              // Animation duration in milliseconds
+    config: { duration: 550 },              // Animation duration in milliseconds
   });
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Home = () => {
     raiseAfter.transform = 'translateY(0)';
   }, [raise, raiseAfter, raiseLate]); // Empty dependency array ensures it runs only once
 
-
+  
   
   return (
     <div className="container">
@@ -47,10 +48,10 @@ const Home = () => {
           <source src={Hero} type="video/mp4" />
           Your browser does not support the video tag.
         </video> */}
-        <div className="content-container">
-          <animated.h1 style={{ ...raise, ...fadeIn }} className="hero-title">{t("homePage.page_title")}</animated.h1>
-          <animated.p style={{ ...raiseLate, ...fadeIn }} className="hero-subtitle">{t("homePage.page_subtitle")}</animated.p>
-          <animated.button style={{ ...raiseAfter }} className="hero-btn-container" onClick={() => { window.location.href = "/learn_more" }}>
+        <div className="content-container" dir={`${userLanguage === "ar" ? "ltr" : "rtl"}`}>
+          <animated.h1 style={{ ...raise, ...fadeIn }} className={`hero-title ${userLanguage !== "ar" ? "ltr" : "rtl"}`}>{t("homePage.page_title")}</animated.h1>
+          <animated.p style={{ ...raiseLate, ...fadeIn }} className={`hero-subtitle ${userLanguage !== "ar" ? "ltr" : "rtl"}`}>{t("homePage.page_subtitle")}</animated.p>
+          <animated.button style={{ ...raiseAfter }} className={`hero-btn-container ${userLanguage !== "ar" ? "ltr" : "rtl"}`} onClick={() => { window.location.href = "/learn_more" }}>
             <span className="hero-btn-text">
               {t("homePage.page_button_text")}
             </span>

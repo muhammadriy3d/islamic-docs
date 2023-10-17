@@ -114,7 +114,7 @@ const Navbar = ({ title }) => {
                 </a>
               </li>
             ))}
-            <label className="lang-label" htmlFor="languages" aria-label="Choose a language"></label>
+            {/* <label className="lang-label" htmlFor="languages" aria-label="Choose a language"></label> */}
             <li className={`dropbtn ${clicked ? 'responsive' : ''}`}>
               <DropdownButton selectClass={`${clicked ? 'responsive' : ''}`} title={t("navBar.page_sections")} options={options} onSelected={handleOptionSelect} />
             </li>
