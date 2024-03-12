@@ -1,5 +1,31 @@
 module.exports = {
-  // Add you postcss configuration here
-  // Learn more about it at https://github.com/webpack-contrib/postcss-loader#config-files
-  plugins: [["autoprefixer"]],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { importLoaders: 1 },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "autoprefixer",
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
 };

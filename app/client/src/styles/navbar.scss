@@ -27,7 +27,7 @@ a {
   align-items: center;
   margin: 0 auto;
   padding: 0 15px 0 15px;
-  max-width: 1240px;
+  max-width: 90vw;
   min-height: 50px;
 }
 
@@ -173,8 +173,13 @@ a {
 
 /* Media Query */
 @media screen and (max-width: base.$xl) {
+  .top-menu-container {
+    max-width: 100%;
+  }
+
   .navbar {
     font-size: 0.95em;
+    
     .brand {
       font-size: 1.8em;
     }
@@ -291,15 +296,15 @@ a {
     position: relative;
     background-color: white;
     margin: 0;
-
+    
     .option {
       width: 100vw;
-      text-align: start;
-
+      
       &-text {
         color: base.$primary-color;
         padding: 15px;
         text-align: start;
+        font-family: "hafs";
       }
     }
   }

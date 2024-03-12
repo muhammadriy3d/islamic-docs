@@ -11,13 +11,13 @@
 
 .footer-container {
   display: grid;
-  grid-template-columns: 2fr auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-template-rows: auto; /* Two rows with specific heights */
   padding: 3em;
   gap: 5rem; /* Gap between grid items */
   background-color: base.$dark-bg-color;
   margin: 0 auto;
-  max-width: 1250px;
+  max-width: 1600px;
   color: white;
 }
 
@@ -37,6 +37,11 @@
   .brand {
     font-family: 'Dthulth', 'Poppins', serif;
     font-size: 2em;
+    user-select: none;
+    transition: color .4s;
+    &:hover {
+      color: base.$secondary-color;
+    }
   }
 
   & p {
@@ -49,6 +54,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
   }
 }
 
@@ -85,4 +91,21 @@
 .footer-section-item {
   grid-column: 1 / 3;
   grid-row: 1 / 2;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .5s ease; 
+
+  &:hover {
+    color: base.$secondary-color;
+    text-decoration: underline;
+    transform: translateX(-6px);
+  }
+}
+
+
+@media screen and (max-width: base.$xxl) {
+  .footer-container {
+    max-width: 100%;
+    grid-template-columns: auto auto;  
+  }
 }

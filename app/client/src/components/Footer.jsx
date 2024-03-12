@@ -22,7 +22,7 @@ const Footer = ({ fsection, sdsection, brand, mail }) => {
         </div>
         <div className="vline"></div>
         {fsection.map((x, s) => (
-          <nav className="start-section">
+          <nav className="start-section" key={s}>
             <h3 className="footer-section-title" key={s}>{x.title}</h3>
             <ul className="footer-section-items">
               {x.items.map((j, ij) => (
@@ -32,7 +32,7 @@ const Footer = ({ fsection, sdsection, brand, mail }) => {
           </nav>
         ))}
         {sdsection.map((x, s) => (
-          <nav className="end-section">
+          <nav className="end-section" key={s}>
             <h3 className="footer-section-title" key={s}>{x.title}</h3>
             <ul className="footer-section-items">
               {x.items.map((j, ij) => (

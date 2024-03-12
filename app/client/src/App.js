@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 
 import "./styles/app.scss";
 import NotFound from "./pages/404";
+import Quran from "./pages/Quran";
+import QuranVerse from "./pages/QuranVerse";
 
 const App = () => {
   const { t } = useTranslation();
@@ -14,6 +16,9 @@ const App = () => {
   // Define your routes with paths and components
   const routes = [
     { path: "/", element: <Home /> },
+    { path: "/القرآن_الكريم", element: <Quran /> },
+    { path: "/القرآن_الكريم/verse/:verseId", element: <QuranVerse /> },
+    { path: "*", element: <NotFound /> },
   ];
 
   const isNotFound = () => {
@@ -76,23 +81,17 @@ const App = () => {
   ];
 
   return (
-      isNotFound() ? (
-        <Routes>
-          <Route path={"*"} element={<NotFound />} />
-        </Routes>
-      ) : (
-        <div className="App">
-          <Navbar />
-          <div className="fixed-navbar"></div>
-          <Routes>
-            {routes.map((route, i) => (
-              <Route key={i} path={route.path} element={route.element} />
-            ))}
-          </Routes>
-          <Footer brand={t("footer.brand")} mail="name@exmail.com" fsection={sections[0].first} sdsection={sections[1].second} />
-        </div>
-      )
-  );
+    <div className="App">
+      <Navbar />
+      <div className="fixed-navbar"></div>
+      <Routes>
+        {routes.map((route, i) => (
+          <Route key={i} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+      <Footer brand={t("footer.brand")} mail="name@exmail.com" fsection={sections[0].first} sdsection={sections[1].second} />
+    </div>
+  )
 }
 
 export default App;
