@@ -1,0 +1,76 @@
+@use "base";
+
+.np-container {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-radius: 8px;
+  height: 100vh;
+}
+
+.just-line {
+  background-color: base.$primary-bg-color;
+  width: 100vw;
+  min-height: 35px;
+}
+
+.np-detail {
+  display: block;
+  line-height: 2em;
+  padding: 2em;
+  width: 100%;
+}
+
+.np-title {
+  font-family: "AljazeeraFontBold", "Poppins", serif;
+  font-size: 2em;
+  line-height: 50px;
+}
+
+.np-title > .np-span {
+  font-weight: 500;
+}
+
+.np-describe {
+  font-size: 1.3em;
+}
+
+.nfc-meme {
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.hero-btn-container {
+  border-radius: 30px;
+  background-color: base.$secondary-bg-color;
+  filter: brightness(1.5);
+  color: base.$secondary-color;
+  font-size: .8em;
+  padding: 8px 4px;
+  margin: 2em 0;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+
+  &:hover {
+    background-color: #392b19;
+  }
+
+  &:active {
+    filter: brightness(1);
+  }
+
+  &:active::before,
+  &:active::after {
+    filter: brightness(1);
+  }
+
+  .hero-btn-text {
+    padding: 8px;
+    font-size: 1.5em;
+    font-family: AljazeeraFontBold, "Poppins", serif;
+    line-height: 30px;
+    text-align: center;
+  }
+}

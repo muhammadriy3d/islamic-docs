@@ -1,0 +1,47 @@
+@use "base";
+
+.verses-container {
+  font-family: "AlJazeeraFontBold";
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 0rem 0 2rem 0;
+  user-select: none;
+}
+
+.quran-title {
+  padding: 3px;
+  background-color: base.$primary-bg-color;
+  color: base.$secondary-color;
+  font-family: 'AlJazeeraFontBold';
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.verses {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 1rem 1.2rem;
+  
+
+  &:hover {
+    background-color: base.$secondary-bg-color;
+    color: base.$secondary-color;
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
+}
